@@ -11,7 +11,7 @@ $( document ).ready(function() {
    //dislay timer
    timer();
    // display Question
-   nextQuestion();
+   buildQuestions();
  });
  
  //global variables
@@ -68,44 +68,28 @@ function stop() {
 // var options = $("#options")
 
 
-function nextQuestion() {
- // $("#question").append(questions.choices)
- console.log(nextQuestion);
-   for (var i = 0; i < questions.length; i++) {
-     var div = $("<div class= 'question'>" );
-     div.text(questions[i].question);
-    $("#question").append(div);
-    // $("#question").append(questions[i].choices);
-    addAnswers();
+function buildQuestions() {
+  var question_form = $('<form>');
+  for (var i = 0; i < questions.length; i++) {
+    for (var j = 0; j < questions[i].choices.length; j++) { 
+      input = $('<input>', { id: questions[i].choices[j], type: "radio", name: questions[i].question });
+      label = $('<label>', { for: questions[i].choices[j]});
+      label.text(questions[i].choices[j]);
+      var div = $('<div class="question">')
+      div.append([input, label])
 
-      };
+      if (j === questions[j].correctAnswer) {
+       label.attr('data-value', 'correct');
+      }  
+      else {
+       label.attr('data-value', 'wrong');    
+      }
 
-    function addAnswers(answers) {
-          var radioList = $('<ul>');
-          var item;
-          var button = '';
-          for (var j = 0; j < questions[j].choices.length; j++) { 
-                item = $('<li>');
-                button = $('<input type ="radio" name= "choices" value=' + i + '/>');
-                button.html(questions[i].choices[j]);
-                item.append(button);
-                radioList.append(item);
-                
-
-                if (j === questions[i].correctAnswer) {
-                 button.attr('data-value', 'correct');
-                }  
-                else {
-                 button.attr('data-value', 'wrong');    
-                }                      
-                $("#question").append(button);
-
-           };
-           return radioList;
-       };
-
- 
-};
+      question_form.append(div)
+    }
+  }
+  $('#questions').append(question_form)
+}
 
 //track wins and losses
 var win = 0
