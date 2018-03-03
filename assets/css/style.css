@@ -1,9 +1,10 @@
 body{
-	background-image: :;
+	background-image: url('../images/90s cartoons.jpg');
 
 }
 h1 {
 	color: blue;
+    font-weight: 20px;
 }
 #container {
     width:50%;
@@ -16,8 +17,24 @@ h1 {
     font-weight: bold;
     box-shadow: 5px 5px 5px #888;
     text-align: center;
+    background: yellow;
 }
 .startbutton {
 	background-color: blue;
 	width:50%;
+}
+.button {
+
+    padding:15px 5px;
+    width:50%;
+}
+
+#done {
+    width:30%;
+   background-color:green;
+   height:30px;
+} 
+
+#countDown {
+    font-size:50px;
 }
