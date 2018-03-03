@@ -1,4 +1,4 @@
-body{
+/*body{
 	background-image: url('../images/90s cartoons.jpg');
 
 }
@@ -37,4 +37,67 @@ h1 {
 
 #countDown {
     font-size:50px;
+}*/
+
+body {
+background-image: url('../images/90s cartoons.jpg');
+}
+
+header
+{
+background: gray;
+overflow: auto;
+}
+
+h2 {
+
+font-size: 40px;
+color: blue;
+font-weight: 20px;
+
+}
+
+
+.container {
+  width:50%;
+    margin:auto;
+    padding: 0 25px 40px 10px;
+    background-color: lightgray;
+    border:4px solid #B0E0E6;
+    border-radius:5px;
+    color: black;
+    font-weight: bold;
+    box-shadow: 5px 5px 5px #888;
+    text-align: center;
+    background: yellow;
+}
+
+}
+
+.choices {
+  color: black;
+  padding: 10px
+  margin-top 20px;
+  margin-bottom: 20px;
+}
+
+#done {
+   width:30%;
+   background-color:green;
+   height:30px
+}
+
+.button {
+
+    padding:15px 5px;
+    width:50%;
+}
+
+.stats {
+font-size: 30px;
+color: green;
+font-weight: 15px;
+
+
+
 }
