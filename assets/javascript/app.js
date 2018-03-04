@@ -119,20 +119,21 @@ $('#done').on('click', function() {
 function buildQuestions() {
  var question_form = $('<form>');
  for (var i = 0; i < questions.length; i++) {
-   var question = $('<p>').text(questions[i].question)
+   var question = $('<p id="questionPara">').text(questions[i].question)
    question_form.append(question)
+
    for (var j = 0; j < questions[i].choices.length; j++) {
-     input = $('<input>', { id: questions[i].choices[j], type: "radio", name: questions[i].question });
-     label = $('<label>', { for: questions[i].choices[j]});
+     var input = $('<input>', { id: questions[i].choices[j], type: "radio", name: questions[i].question });
+     var label = $('<label>', { for: questions[i].choices[j]});
      label.text(questions[i].choices[j]);
-     var div = $('<div class="question-choice">')
+     var div = $('<div class="choices">')
      div.append([input, label])
 
-     if (j === questions[j].correctAnswer) {
-      label.attr('data-value', 'correct');
+     if (j === questions[i].correctAnswer) {
+      div.attr('data-value', 'correct');
      }
      else {
-      label.attr('data-value', 'wrong');
+      div.attr('data-value', 'wrong');
      }
      question_form.append(div)
    }
